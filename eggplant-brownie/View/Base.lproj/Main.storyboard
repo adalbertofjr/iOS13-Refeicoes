@@ -46,11 +46,18 @@
                                 <rect key="frame" x="175" y="308" width="65" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Adicionar"/>
+                                <connections>
+                                    <action selector="adicionar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Ky-YQ-1Nd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="felicidadeTextField" destination="M6j-eG-UcY" id="AhU-lb-3eH"/>
+                        <outlet property="nomeTextField" destination="drn-dr-EeX" id="hDv-0T-uTW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

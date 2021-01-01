@@ -62,15 +62,39 @@
 			children = (
 				3F4C3497259FAF0600444707 /* AppDelegate.swift */,
 				3F4C3499259FAF0600444707 /* SceneDelegate.swift */,
-				3F4C349B259FAF0600444707 /* ViewController.swift */,
-				3F4C34AC259FB27500444707 /* Refeicao.swift */,
-				3F4C34B0259FB35100444707 /* Item.swift */,
-				3F4C349D259FAF0600444707 /* Main.storyboard */,
+				3F4C34B4259FB57C00444707 /* Model */,
+				3F4C34B6259FB5F900444707 /* View */,
+				3F4C34B5259FB5E300444707 /* Controller */,
 				3F4C34A0259FAF0A00444707 /* Assets.xcassets */,
 				3F4C34A2259FAF0A00444707 /* LaunchScreen.storyboard */,
 				3F4C34A5259FAF0A00444707 /* Info.plist */,
 			);
 			path = "eggplant-brownie";
+			sourceTree = "<group>";
+		};
+		3F4C34B4259FB57C00444707 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3F4C34AC259FB27500444707 /* Refeicao.swift */,
+				3F4C34B0259FB35100444707 /* Item.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3F4C34B5259FB5E300444707 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3F4C349B259FAF0600444707 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3F4C34B6259FB5F900444707 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F4C349D259FAF0600444707 /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

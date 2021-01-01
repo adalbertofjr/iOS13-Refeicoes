@@ -8,9 +8,9 @@
 import UIKit
 
 class Refeicao: NSObject {
-    var nome: String
-    var felicidade: String
-    var itens : Array<Item> = []
+    let nome: String
+    let felicidade: String
+    let itens : Array<Item> = []
     
     init(nome: String, felicidade: String) {
         self.nome = nome
