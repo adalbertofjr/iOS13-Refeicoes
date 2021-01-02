@@ -15,7 +15,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     // MARK: - Atributos
     var delegate: AdicionaRefeicaoDelegate?
-    var itens: [String] = ["Muçarela", "Manjericão", "Molho de tomate", "Calabresa"]
+    var itens: [Item] = [Item(nome: "Muçarela", calorias: 20.0),
+                         Item(nome: "Manjericão", calorias: 20.0),
+                         Item(nome: "Molho de tomate", calorias: 20.0),
+                         Item(nome: "Calabresa", calorias: 20.0)]
+    var itensSelecionados:[Item] = []
     
     // MARK: - IBOutlets
     @IBOutlet var nomeTextField:UITextField?
@@ -31,7 +35,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let linhaDaTabela = indexPath.row
         let item = itens[linhaDaTabela]
         
-        celula.textLabel?.text = item
+        celula.textLabel?.text = item.nome
         
         return celula
     }
@@ -41,8 +45,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         guard let celula = tableView.cellForRow(at: indexPath) else { return }
         if celula.accessoryType == .none{
             celula.accessoryType = .checkmark
+            let linhaDaTabela = indexPath.row
+            itensSelecionados.append(itens[linhaDaTabela])
         } else {
             celula.accessoryType = .none
+            
+            let item = itens[indexPath.row]
+            if let itemSelecionado = itensSelecionados.firstIndex(of: item){
+                itensSelecionados.remove(at: itemSelecionado)                
+            }
         }
     }
     
@@ -69,7 +80,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             return
         }
         
-        let refeicao = Refeicao(nome: nome, felicidade: felicidade)
+        let refeicao = Refeicao(nome: nome, felicidade: felicidade, itens: itensSelecionados)
         delegate?.add(refeicao)
                 
         navigationController?.popViewController(animated: true)        
