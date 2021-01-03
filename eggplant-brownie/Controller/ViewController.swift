@@ -14,7 +14,7 @@ protocol AdicionaRefeicaoDelegate {
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AdicionarItemDelegate {
     
     // MARK: - IBOutlets
-    @IBOutlet weak var itensTableView: UITableView!
+    @IBOutlet weak var itensTableView: UITableView?
     
     // MARK: - Atributos
     var delegate: AdicionaRefeicaoDelegate?
@@ -41,7 +41,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func add(_ item: Item) {
         itens.append(item)
-        itensTableView.reloadData()
+        
+        if let tableView = itensTableView{
+            tableView.reloadData()
+        }else{
+            let alerta = UIAlertController(title: "Atenção", message: "Não foi possível atualizar a tabela."
+                                           , preferredStyle: .alert)
+            let botaoOK = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alerta.addAction(botaoOK)
+            
+            present(alerta, animated: true, completion: nil)
+        }
     }
     
     // MARK: - UITableViewDataSource
