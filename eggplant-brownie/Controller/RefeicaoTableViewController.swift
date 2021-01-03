@@ -47,7 +47,7 @@ class RefeicaoTableViewController: UITableViewController,
             guard let indexPath = tableView.indexPath(for: celula) else { return }
             let refeicao = refeicoes[indexPath.row]
             
-            let alert = UIAlertController(title: refeicao.nome, message: "felicidade: \(refeicao.felicidade)", preferredStyle: .alert)
+            let alert = UIAlertController(title: refeicao.nome, message: refeicao.detalhes(), preferredStyle: .alert)
             let botaoCancelar = UIAlertAction(title: "ok", style: .cancel, handler: nil)
             alert.addAction(botaoCancelar)
             
