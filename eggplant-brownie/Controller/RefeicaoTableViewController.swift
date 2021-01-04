@@ -13,20 +13,25 @@ class RefeicaoTableViewController: UITableViewController,
                      Refeicao(nome: "comida japoneza", felicidade: 2),
                      Refeicao(nome: "hamburguer", felicidade: 5)]
     
-    override func viewDidLoad() {
-        guard let diretorio = FileManager.default.urls(for: .documentDirectory,
-                                                       in: .userDomainMask).first else { return }
-        let caminho = diretorio.appendingPathComponent("refeicao")
-        
+    override func viewDidLoad() {       
+        guard let caminho = recuperaDiretorio() else { return }
         do{
             let dados = try Data(contentsOf: caminho)
             guard let refeiçõesSalvas = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(dados) as? Array<Refeicao> else {
                 return
-            }            
+            }
             refeicoes = refeiçõesSalvas
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    func recuperaDiretorio() -> URL?{
+        guard let diretorio = FileManager.default.urls(for: .documentDirectory,
+                                                       in: .userDomainMask).first else { return nil}
+        let caminho = diretorio.appendingPathComponent("refeicao")
+        
+        return caminho
     }
     
     // MARK: - UITableView
@@ -57,11 +62,8 @@ class RefeicaoTableViewController: UITableViewController,
     func add(_  refeicao: Refeicao){
         refeicoes.append(refeicao)
         tableView.reloadData()
-        
-        guard let diretorio = FileManager.default.urls(for: .documentDirectory,
-                                                       in: .userDomainMask).first else { return }
-        let caminho = diretorio.appendingPathComponent("refeicao")
-        
+                
+        guard let caminho = recuperaDiretorio() else { return }
         do {
             let dados = try NSKeyedArchiver.archivedData(withRootObject: refeicoes,
                                                          requiringSecureCoding: false)

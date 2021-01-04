@@ -47,6 +47,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }else{
             Alerta(controller: self).exibe(mensagem:  "Não foi possível atualizar a tabela")
         }
+        
+        guard let caminho = recuperaDiretorio() else { return }
+                
+        do {
+            let dados = try NSKeyedArchiver.archivedData(withRootObject: itens, requiringSecureCoding: false)
+            try dados.write(to: caminho)
+            
+//            Dica: - No modo debug para visualizar o caminho :
+//            (lldb) po NSHomeDirectory()  "/Users/adalbertofernandesjunior/Library/Developer/CoreSimulator/Devices/B8328B9A-DEEF-419A-926C-19BA7C32EA00/data/Containers/Data/Application/E0D47388-296E-4FE2-BA9A-F58D92177332"
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func recuperaDiretorio() -> URL?{
+        guard let diretorio = FileManager.default.urls(for: .documentDirectory,
+                                                       in: .userDomainMask).first else { return nil}
+        let caminho = diretorio.appendingPathComponent("itens")
+        
+        return caminho
     }
     
     // MARK: - UITableViewDataSource
