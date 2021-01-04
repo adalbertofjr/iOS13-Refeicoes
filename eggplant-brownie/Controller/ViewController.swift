@@ -81,33 +81,29 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-    // MARK: - IBActions
-    @IBAction func adicionar(_ sender: Any){
-        //        if let nomeRefeicao = nomeTextField?.text,
-        //           let felicidadeRefeicao = felicidadeTextField?.text{
-        //            let nome = nomeRefeicao
-        //            if let felicidade = Int(felicidadeRefeicao){
-        //                let refeicao = Refeicao(nome: nome, felicidade: felicidade)
-        //
-        //                print("comi \(refeicao.nome) e fiquei com felicidade: \(refeicao.felicidade)")
-        //            }else{
-        //                print("Erro ao adicionar refeição")
-        //            }
-        //        }
-        
+    func recuperaRefeicaoDoFormulario() -> Refeicao?{
         guard let nome = nomeTextField?.text else {
-            return
+            return nil
         }
         
         guard let felicidadeRefeicao = felicidadeTextField?.text,
               let felicidade = Int(felicidadeRefeicao) else {
-            return
+            return nil
         }
         
         let refeicao = Refeicao(nome: nome, felicidade: felicidade, itens: itensSelecionados)
-        delegate?.add(refeicao)
-                
-        navigationController?.popViewController(animated: true)        
+        
+        return refeicao
+    }
+    
+    // MARK: - IBActions
+    @IBAction func adicionar(_ sender: Any){
+        if let refeicao = recuperaRefeicaoDoFormulario(){
+            delegate?.add(refeicao)
+            navigationController?.popViewController(animated: true)
+        }else{
+            Alerta(controller: self).exibe(mensagem: "Erro ao recuperar dados do formulário")
+        }
     }
 }
 
