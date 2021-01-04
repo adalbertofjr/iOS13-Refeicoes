@@ -18,6 +18,7 @@
 		3F4C34BA259FD0A000444707 /* RefeicaoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C34B9259FD0A000444707 /* RefeicaoTableViewController.swift */; };
 		3F4C34BE25A0C04A00444707 /* AdicionarItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C34BC25A0C04A00444707 /* AdicionarItemViewController.swift */; };
 		3F4C34BF25A0C04A00444707 /* AdicionarItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F4C34BD25A0C04A00444707 /* AdicionarItemViewController.xib */; };
+		3FEEB14225A2959600298AC1 /* Alerta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEB14125A2959600298AC1 /* Alerta.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		3F4C34B9259FD0A000444707 /* RefeicaoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefeicaoTableViewController.swift; sourceTree = "<group>"; };
 		3F4C34BC25A0C04A00444707 /* AdicionarItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionarItemViewController.swift; sourceTree = "<group>"; };
 		3F4C34BD25A0C04A00444707 /* AdicionarItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdicionarItemViewController.xib; sourceTree = "<group>"; };
+		3FEEB14125A2959600298AC1 /* Alerta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerta.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			children = (
 				3F4C34AC259FB27500444707 /* Refeicao.swift */,
 				3F4C34B0259FB35100444707 /* Item.swift */,
+				3FEEB14125A2959600298AC1 /* Alerta.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FEEB14225A2959600298AC1 /* Alerta.swift in Sources */,
 				3F4C34B1259FB35100444707 /* Item.swift in Sources */,
 				3F4C349C259FAF0600444707 /* ViewController.swift in Sources */,
 				3F4C3498259FAF0600444707 /* AppDelegate.swift in Sources */,
