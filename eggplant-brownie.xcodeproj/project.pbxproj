@@ -19,6 +19,7 @@
 		3F4C34BE25A0C04A00444707 /* AdicionarItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C34BC25A0C04A00444707 /* AdicionarItemViewController.swift */; };
 		3F4C34BF25A0C04A00444707 /* AdicionarItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F4C34BD25A0C04A00444707 /* AdicionarItemViewController.xib */; };
 		3FEEB14225A2959600298AC1 /* Alerta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEB14125A2959600298AC1 /* Alerta.swift */; };
+		3FEEB14525A29FA500298AC1 /* RemoveRefeicaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEEB14425A29FA500298AC1 /* RemoveRefeicaoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		3F4C34BC25A0C04A00444707 /* AdicionarItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionarItemViewController.swift; sourceTree = "<group>"; };
 		3F4C34BD25A0C04A00444707 /* AdicionarItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdicionarItemViewController.xib; sourceTree = "<group>"; };
 		3FEEB14125A2959600298AC1 /* Alerta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerta.swift; sourceTree = "<group>"; };
+		3FEEB14425A29FA500298AC1 /* RemoveRefeicaoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveRefeicaoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				3F4C349B259FAF0600444707 /* ViewController.swift */,
 				3F4C34B9259FD0A000444707 /* RefeicaoTableViewController.swift */,
 				3F4C34BC25A0C04A00444707 /* AdicionarItemViewController.swift */,
+				3FEEB14425A29FA500298AC1 /* RemoveRefeicaoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				3FEEB14225A2959600298AC1 /* Alerta.swift in Sources */,
 				3F4C34B1259FB35100444707 /* Item.swift in Sources */,
 				3F4C349C259FAF0600444707 /* ViewController.swift in Sources */,
+				3FEEB14525A29FA500298AC1 /* RemoveRefeicaoViewController.swift in Sources */,
 				3F4C3498259FAF0600444707 /* AppDelegate.swift in Sources */,
 				3F4C34BE25A0C04A00444707 /* AdicionarItemViewController.swift in Sources */,
 				3F4C349A259FAF0600444707 /* SceneDelegate.swift in Sources */,
