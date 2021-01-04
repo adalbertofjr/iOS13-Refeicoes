@@ -13,6 +13,24 @@ class RefeicaoTableViewController: UITableViewController,
                      Refeicao(nome: "comida japoneza", felicidade: 2),
                      Refeicao(nome: "hamburguer", felicidade: 5)]
     
+    override func viewDidLoad() {
+        guard let diretorio = FileManager.default.urls(for: .documentDirectory,
+                                                       in: .userDomainMask).first else { return }
+        let caminho = diretorio.appendingPathComponent("refeicao")
+        
+        do{
+            let dados = try Data(contentsOf: caminho)
+            guard let refeiçõesSalvas = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(dados) as? Array<Refeicao> else {
+                return
+            }            
+            refeicoes = refeiçõesSalvas
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    // MARK: - UITableView
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return refeicoes.count
     }
@@ -39,6 +57,18 @@ class RefeicaoTableViewController: UITableViewController,
     func add(_  refeicao: Refeicao){
         refeicoes.append(refeicao)
         tableView.reloadData()
+        
+        guard let diretorio = FileManager.default.urls(for: .documentDirectory,
+                                                       in: .userDomainMask).first else { return }
+        let caminho = diretorio.appendingPathComponent("refeicao")
+        
+        do {
+            let dados = try NSKeyedArchiver.archivedData(withRootObject: refeicoes,
+                                                         requiringSecureCoding: false)
+            try dados.write(to: caminho)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     @objc func mostrarDetalhes(_ gesture: UILongPressGestureRecognizer){
