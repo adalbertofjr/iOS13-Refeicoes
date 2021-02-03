@@ -18,10 +18,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: - Atributos
     var delegate: AdicionaRefeicaoDelegate?
-    var itens: [Item] = [Item(nome: "Muçarela", calorias: 20.0),
-                         Item(nome: "Manjericão", calorias: 20.0),
-                         Item(nome: "Molho de tomate", calorias: 20.0),
-                         Item(nome: "Calabresa", calorias: 20.0)]
+    var itens: [Item] = []
     var itensSelecionados:[Item] = []
     
     // MARK: - IBOutlets
@@ -32,15 +29,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         let botaoAdicionatItem = UIBarButtonItem(title: "Adicionar", style: .plain, target: self, action: #selector(adicionarItens))
         navigationItem.rightBarButtonItem = botaoAdicionatItem
-                
-        do{
-            guard let caminho = recuperaDiretorio() else { return }
-            let dados = try Data(contentsOf: caminho)
-            guard let itensSalvos = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(dados) as? [Item] else { return }
-            itens = itensSalvos
-        } catch {
-            print(error.localizedDescription)
-        }
+        
+        recuperaItens()
+    }
+    
+    func recuperaItens(){
+        itens = ItemDAO().recupera()
     }
     
     @objc func adicionarItens(){
@@ -50,33 +44,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func add(_ item: Item) {
         itens.append(item)
+        ItemDAO().save(itens)
         
         if let tableView = itensTableView{
             tableView.reloadData()
         }else{
             Alerta(controller: self).exibe(mensagem:  "Não foi possível atualizar a tabela")
+            return
         }
-        
-        guard let caminho = recuperaDiretorio() else { return }
-                
-        do {
-            let dados = try NSKeyedArchiver.archivedData(withRootObject: itens, requiringSecureCoding: false)
-            try dados.write(to: caminho)
-            
-//            Dica: - No modo debug para visualizar o caminho :
-//            (lldb) po NSHomeDirectory()  "/Users/adalbertofernandesjunior/Library/Developer/CoreSimulator/Devices/B8328B9A-DEEF-419A-926C-19BA7C32EA00/data/Containers/Data/Application/E0D47388-296E-4FE2-BA9A-F58D92177332"
-            
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-    
-    func recuperaDiretorio() -> URL?{
-        guard let diretorio = FileManager.default.urls(for: .documentDirectory,
-                                                       in: .userDomainMask).first else { return nil}
-        let caminho = diretorio.appendingPathComponent("itens")
-        
-        return caminho
     }
     
     // MARK: - UITableViewDataSource

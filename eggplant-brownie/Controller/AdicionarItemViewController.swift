@@ -29,18 +29,13 @@ class AdicionarItemViewController: UIViewController {
         super.init(coder: coder)
     }
     
-    
     // MARK: - View life cycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
-    
-    
     //MARK: - IBActions
-    
     @IBAction func adicionarItem(_ sender: Any) {
         guard let nome = nomeTextField.text,
               let calorias = caloriasTextField.text else {
