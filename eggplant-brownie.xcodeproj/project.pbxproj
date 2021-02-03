@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F27CD2225CA241800B72A29 /* RefeicaoDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27CD2125CA241800B72A29 /* RefeicaoDAO.swift */; };
 		3F4C3498259FAF0600444707 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C3497259FAF0600444707 /* AppDelegate.swift */; };
 		3F4C349A259FAF0600444707 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C3499259FAF0600444707 /* SceneDelegate.swift */; };
 		3F4C349C259FAF0600444707 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C349B259FAF0600444707 /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F27CD2125CA241800B72A29 /* RefeicaoDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefeicaoDAO.swift; sourceTree = "<group>"; };
 		3F4C3494259FAF0600444707 /* eggplant-brownie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eggplant-brownie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F4C3497259FAF0600444707 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F4C3499259FAF0600444707 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				3F4C34AC259FB27500444707 /* Refeicao.swift */,
 				3F4C34B0259FB35100444707 /* Item.swift */,
 				3FEEB14125A2959600298AC1 /* Alerta.swift */,
+				3F27CD2125CA241800B72A29 /* RefeicaoDAO.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F27CD2225CA241800B72A29 /* RefeicaoDAO.swift in Sources */,
 				3FEEB14225A2959600298AC1 /* Alerta.swift in Sources */,
 				3F4C34B1259FB35100444707 /* Item.swift in Sources */,
 				3F4C349C259FAF0600444707 /* ViewController.swift in Sources */,
